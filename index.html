@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=924, height=630"/>
+
+<title>Trophic Game</title>
+<link href="assets/css/font.css" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="assets/css/actstyle.css" rel="stylesheet"/>
+<link href="assets/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+
+<script src="assets/js/jquery-2.0.0.min.js"></script>
+<script src="assets/js/jquery.rotate.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/html2canvas.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/eventjs.js"></script>
+<script src="assets/js/activity.js"></script>
+<script src="assets/js/jquery.preload.js"></script>
+<style>
+	.edgeLoad-EDGE-1817669 { visibility:hidden; }
+</style>
+<script>
+	$(function(){
+		 document.addEventListener('touchmove', function(event) {
+			event = event.originalEvent || event;
+			if(event.scale > 1) {
+			  event.preventDefault();
+			}
+		  }, false);
+		var imgs = [
+			'assets/edge/images/amazon.png',
+			'assets/edge/images/amazon_arrow_6.png',
+			'assets/edge/images/amazon_arrow_7.png',
+			'assets/edge/images/audio_icon_normal.png',
+			'assets/edge/images/audio_icon_play.png',
+			'assets/edge/images/audio_inactive_icon_normal.png',
+			'assets/edge/images/cursor.png',
+			'assets/edge/images/embtriangle.png',
+			'assets/edge/images/embtriangle1.png',
+			'assets/edge/images/kelp.png',			
+			'assets/edge/images/left_slider_act.png',
+			'assets/edge/images/left_slider_deact.png',
+			'assets/edge/images/monterey.png',
+			'assets/edge/images/monterey_arrow_4.png',
+			'assets/edge/images/monterey_arrow_5.png',
+			'assets/edge/images/monterey_arrow_6.png',
+			'assets/edge/images/monterey_arrow_8.png',
+			'assets/edge/images/monterey_red.png',
+			'assets/edge/images/preloader2.gif',
+			'assets/edge/images/rabbit_Lnav.png',
+			'assets/edge/images/rabbit_Lnav1.png',			
+			'assets/edge/images/rabitfish.png',
+			'assets/edge/images/rabit_stage_1.png',
+			'assets/edge/images/rabit_stage_2.png',			
+			'assets/edge/images/rabit_stage_3.png',
+			'assets/edge/images/right_slider_act.png',
+			'assets/edge/images/right_slider_deact.png',
+			'assets/edge/images/slider_1.png',
+			'assets/edge/images/step_0.png',
+			'assets/edge/images/step_1.png',			
+			'assets/edge/images/step_2.png',
+			'assets/edge/images/step_4.png',
+			'assets/edge/images/step_5.png',
+			'assets/edge/images/step_6.png',
+			'assets/edge/images/step_7.png',
+			'assets/scrollbar/mCSB_buttons.png',
+			'assets/images/embtriangle.png',
+			'assets/images/embtriangle1.png',
+			'assets/images/welcomebg.png',
+			'assets/images/activity/anchovy.png',
+			'assets/images/activity/blackrat.png',
+			'assets/images/activity/bluemorpho.png',
+			'assets/images/activity/cecropiatree.png',
+			'assets/images/activity/figtree.png',
+			'assets/images/activity/guavatree.png',
+			'assets/images/activity/harpyeagle.png',
+			'assets/images/activity/jacamar.png',
+			'assets/images/activity/jaguar.png',
+			'assets/images/activity/kelp.png',
+			'assets/images/activity/kelpgreen.png',
+			'assets/images/activity/phytoplankton.png',
+			'assets/images/activity/rabbitfish.png',
+			'assets/images/activity/redalgae.png',
+			'assets/images/activity/ringtailedcoati.png',
+			'assets/images/activity/rockfish.png',
+			'assets/images/activity/seaotter.png',
+			'assets/images/activity/seastar.png',
+			'assets/images/activity/seaurchin.png',
+			'assets/images/activity/sloth.png',
+			'assets/images/activity/toucan.png',
+			'assets/images/activity/treeboa.png',
+			'assets/images/activity/turbansnail.png',
+			'assets/images/activity/white.png',
+			'assets/images/activity/arrows/amazon_arrow_0.png',
+			'assets/images/activity/arrows/amazon_arrow_1.png',
+			'assets/images/activity/arrows/amazon_arrow_10.png',
+			'assets/images/activity/arrows/amazon_arrow_11.png',
+			'assets/images/activity/arrows/amazon_arrow_2.png',
+			'assets/images/activity/arrows/amazon_arrow_3.png',
+			'assets/images/activity/arrows/amazon_arrow_4.png',
+			'assets/images/activity/arrows/amazon_arrow_5.png',
+			'assets/images/activity/arrows/amazon_arrow_6.png',
+			'assets/images/activity/arrows/amazon_arrow_7.png',
+			'assets/images/activity/arrows/amazon_arrow_8.png',
+			'assets/images/activity/arrows/amazon_arrow_9.png',
+			'assets/images/activity/arrows/monterey_arrow_0.png',
+			'assets/images/activity/arrows/monterey_arrow_1.png',
+			'assets/images/activity/arrows/monterey_arrow_10.png',
+			'assets/images/activity/arrows/monterey_arrow_2.png',
+			'assets/images/activity/arrows/monterey_arrow_3.png',
+			'assets/images/activity/arrows/monterey_arrow_4.png',
+			'assets/images/activity/arrows/monterey_arrow_5.png',
+			'assets/images/activity/arrows/monterey_arrow_6.png',
+			'assets/images/activity/arrows/monterey_arrow_7.png',
+			'assets/images/activity/arrows/monterey_arrow_8.png',
+			'assets/images/activity/arrows/monterey_arrow_9.png',
+			'assets/images/act_images/embtriangle.png',
+			'assets/images/act_images/embtriangle1.png',
+			'assets/images/template/audio_icon_normal.png',
+			'assets/images/template/audio_icon_play.png',
+			'assets/images/template/camera_icon.png',
+			'assets/images/template/camera_icon_disabled.png',
+			'assets/images/template/close.png',
+			'assets/images/template/info_icon.png',
+			'assets/images/template/left_slider_act.png',
+			'assets/images/template/left_slider_deact.png',
+			'assets/images/template/lslider.png',
+			'assets/images/template/ok_btn.png',
+			'assets/images/template/ok_btn_active.png',
+			'assets/images/template/ok_btn_clkd.png',
+			'assets/images/template/ok_btn_glow.png',
+			'assets/images/template/reset-01.png',
+			'assets/images/template/reset-02.png',
+			'assets/images/template/right_slider_act.png',
+			'assets/images/template/right_slider_deact.png',
+			'assets/images/template/rslider.png'
+
+		];		
+		$.preload(imgs, {
+		    each: function (count) {
+		    },
+		    all: function () {
+			   $('.screenArea').css('display','block');
+			   $('.preloaderImg').css('display','none');
+			  
+		    }
+		});
+	});
+</script>
+</head>
+
+<body>
+<div class="container">
+ 	<div class="header" >
+    	<span class="activity_title">Trophic Levels</span>
+		<span class="infoIcon"></span>
+        <span id="rtxt_1" name="welcome" class="rtxt">Welcome</span>
+        <span id="rtxt_2" name="explore" class="rtxt">Explore</span>
+        <span id="rtxt_3" name="activity" class="rtxt">Activity</span>
+    </div>
+	
+	<img src="assets/edge/images/step_0.png" width="924px" height="588px" class="workAreaBg"/>
+	<img class="preloaderImg" src="assets/edge/images/preloader2.gif" style="position:absolute;left:0;top:0; right:0; bottom:0; margin:auto;"/>
+	
+	<div class="screenArea" style="width:924px;height:588px;position: absolute;top:42px;" audio-mode="off">		
+	
+		<div class="sliderContain"></div>
+		<div id="welcome" class="workArea">
+			<iframe src="assets/edge/index.html" id="myFrame" width="924" height="588" scroll="no" style="border:none"></iframe>
+			<!-- <div id="Stage" class="EDGE-1817669">
+			</div> -->
+		</div>
+		<div class="dummyNav"></div>
+		<div id="explore" class="workArea" data-class="explore">
+			<!-- <div class="EventNotAllowed"></div> -->
+			<div class="clickClose"></div>
+			<div class="exploreLabel_1" style="position:absolute">
+				<div class="expDiv">
+					<div class="expChild">
+					
+					</div>
+				</div>
+				<div class="expImgs"></div>
+			</div>
+			
+			<div class="exploreLabel_2" style="position:absolute">
+				<!-- Dont Delete -->
+				
+				<div class="activtyDiv">
+				</div>
+				<!-- Dont Delete -->
+			</div>
+			
+		</div>
+		<div id="popups">
+			<div id="popupsBlack">
+			</div>
+			<div class="popupcontent">	
+				<img src="assets/images/template/audio_icon_normal.png" class="popUpAudioIcon expAudio" audio-state="pause" style="top: 16px;" width="30px">
+				<p class="popUppara" style="top: 0px;">You have reached the end of this guided activity. But there's much more to explore in this virtual lab. Using Explore mode, you can continue to learn more about the Monterey Bay ecosystem, or you can explore the Amazon Rain Forest. As you explore these ecosystems, compare the feeding relationships in their food webs and energy pyramids. In what ways are they similar and different?</p>
+				<div class="popUpokbtn"></div>
+				<div id="endScrnPopup" style="bottom: 0px;" class="glowOkTl"></div>
+			</div>
+		</div>
+		<div class="Modes">
+			<div class="rightGrpBtn">	
+				<div class="rightlabel1 labelArrow">Food Web</div>					
+				<div class="rightlabel2">Trophic Levels<div class="highlight highlight2"></div></div>
+			</div>
+		</div>
+		<div class="highlightTab">
+			<div class="chheader1 button" bubble="monterey" id="ch1" data-show="1">Monterey Bay</div>
+			<div class="chheader2 button" bubble="amazon" id="ch2" data-show="2">Amazon Rain Forest</div>
+		</div>
+		<div id="activity" class="workArea" data-class="activity" style="display:none">
+			
+			<!-- Dont Delete -->
+			<!-- <div class="EventNotAllowed"></div> -->
+			<div class="EventNotAllowed1"></div>
+			<div class="clickClose1"></div>
+			<!-- Dont Delete -->
+			<div class="bg_0"></div>
+			<div class="dragComp"><div class='closeclick'></div></div>
+			<div class="dropComp"><div class='closeclick1'></div></div>
+			<div class="activtyDiv">
+			
+			</div>
+			<div class="buttonDiv"></div>
+			<div class="producerclass">
+				<div class="producer commonClass">Producers</div>
+				<div class="producer1 commonClass">Primary consumers</div>
+				<div class="producer2 commonClass">Secondary consumers</div>
+				<div class="producer3 commonClass">Tertiary consumers</div>
+			</div> 
+			<div class="roundAnimate" id="roundAnimate_0"></div>
+			<div class="roundAnimate" id="roundAnimate_1"></div>
+			<div class="roundAnimate" id="roundAnimate_2"></div>
+			<div class="roundAnimate" id="roundAnimate_3"></div>
+			<div class="text">Energy (kcal/m<sup style="font-size:10px">2</sup>)</div> 
+			<div id="resetbtn_btn">Reset</div>	
+			<div class="dummy_Div"></div>
+		</div>   
+		   
+		<audio id ='audioId'></audio>
+		<audio id="audioId1" ></audio>
+		<audio id="audioId2" ></audio>
+		<div class="helpwindow">
+			<div class="helpinner">
+				<div class="helpBlockTopWhite" style="z-index: 9;height:10px;width:555px;position:absolute;background:white;top:153px"></div>
+					<div class="help1" data-class="lclass">Background Information</div>
+					<div class="help2" data-class="rclass">Help</div>
+					<div class="helpBlock1"></div>
+					<div class="helpBlock2"></div>
+					<img src="assets/images/template/close.png" width="30px" class="closeIcon"/>
+				<div class="helpBlockBotWhite" style="z-index: 9;height:10px;width:555px;position:absolute;background:white;bottom:105px"></div>
+			</div>
+		</div>	
+		<div class="bubbleDiv"></div>
+    </div>
+	<img src="assets/images/template/camera_icon.png" class="screenIcon" style=""/>		
+</div>
+</body>
+</html>
+
